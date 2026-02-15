@@ -10,7 +10,7 @@ export interface ITransaction extends Document{
     status: "pending" | "paid" | "rejected";
     purchasedItems: IPurchasedItem[];
     totalPayment: number;
-    customerName: number;
+    customerName: string;
     customerContact: string;
     customerAddress: string;
 }
@@ -33,11 +33,11 @@ const TransactionShema: Schema = new Schema({
         default: "pending",
         required: true,
     },
-    purchaseItems: {type: [PurchasedItemShcema], required: true},
+    purchasedItems: {type: [PurchasedItemShcema], required: true},
     totalPayment: {type: Number, required: true},
     customerName: {type: String, required: true},
     customerContact: {type: String, required: true},
-    customerAddres: {type: String, required: true},
+    customerAddress: {type: String, required: true},
 }, {timestamps: true});
 
 export default mongoose.model<ITransaction>("Transaction", TransactionShema);

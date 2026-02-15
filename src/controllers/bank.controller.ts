@@ -20,7 +20,7 @@ export const getBanks = async ( req: Request, res: Response): Promise<void> => {
     }
 }
 
-export const deleteBank = async ( req: Request, res: Response): Promise<void> => {
+export const updateBank = async ( req: Request, res: Response): Promise<void> => {
     try{
         const bank = await Bank.findByIdAndUpdate(req.params.id, req.body, {new: true});
         if (!bank){
@@ -33,7 +33,7 @@ export const deleteBank = async ( req: Request, res: Response): Promise<void> =>
     }
 }
 
-export const updateBank = async ( req: Request, res: Response): Promise<void> => {
+export const deleteBank = async ( req: Request, res: Response): Promise<void> => {
     try{
         const bank = await Bank.findByIdAndDelete(req.params.id);
         if (!bank){
